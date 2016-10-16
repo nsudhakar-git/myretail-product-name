@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,9 +59,10 @@ public class ProductDescController {
 		logger.info("Fetch product Name..."+productID);
 		ProductDescription prod = productDAO.readById(productID);
 		if(prod==null){
-			prod = new ProductDescription();
+			/*prod = new ProductDescription();
 			prod.setProductID(productID);
-			prod.setProductName("");
+			prod.setProductName("");*/
+			throw new ResourceNotFoundException(); 
 		}
 		return prod;
 	}
