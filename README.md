@@ -1,2 +1,6 @@
 # Product Name service
-#### myretail-productName
+#### myretail-product-name
+
+Service to retreieve the name of a product.
+
+
